@@ -1,11 +1,16 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
 
 const dishes =[
   "Food 1",
   "food 2",
   "food 3",
+  "food 4",
+  "food 5"
 ]
+
+const dishesObject = dishes.map((dish,i)=>({id: i, title: dish}));
+
 function Header(props){
   return(
     <header>
@@ -20,7 +25,9 @@ function Main(props){
       <h2><p>We serve {props.a} food</p></h2>
       <ul style ={{textAlign:"Left" }}>
         {props.dish.map((dishing)=>
-        <li>{dishing}</li>)}
+        <li key={dishing.id}>
+          {dishing.title}
+        </li>)}
       </ul>
     </section>
   )
@@ -37,9 +44,9 @@ function Footer(props){
 function App() {
   return (
     <div className="App">
-      <Header name="Jeevan"/>
-      <Main text="amazing" dish ={dishes}/>
-      <Footer year={new Date().getFullYear}/>
+      <Header name="Jeevan" />
+      <Main text="amazing" dish ={dishesObject} />
+      <Footer year={new Date().getFullYear()} />
     </div>
   );
 }
