@@ -1,5 +1,6 @@
 import React from "react";
 import './App.css';
+import table from './table.jpg'
 
 const dishes =[
   "Food 1",
@@ -23,6 +24,8 @@ function Main(props){
   return (
     <section>
       <h2><p>We serve {props.a} food</p></h2>
+      <img 
+      src={table} height={200} alt ="table for four"></img>
       <ul style ={{textAlign:"Left" }}>
         {props.dish.map((dishing)=>
         <li key={dishing.id}>
