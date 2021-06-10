@@ -1,6 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 
+const dishes =[
+  "Food 1",
+  "food 2",
+  "food 3",
+]
 function Header(props){
   return(
     <header>
@@ -13,9 +18,14 @@ function Main(props){
   return (
     <section>
       <h2><p>We serve {props.a} food</p></h2>
+      <ul style ={{textAlign:"Left" }}>
+        {props.dish.map((dishing)=>
+        <li>{dishing}</li>)}
+      </ul>
     </section>
   )
 }
+
 
 function Footer(props){
   return (
@@ -28,7 +38,7 @@ function App() {
   return (
     <div className="App">
       <Header name="Jeevan"/>
-      <Main text="amazing"/>
+      <Main text="amazing" dish ={dishes}/>
       <Footer year={new Date().getFullYear}/>
     </div>
   );
